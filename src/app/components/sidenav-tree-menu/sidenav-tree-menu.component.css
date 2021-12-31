@@ -1,0 +1,53 @@
+.type-icon {
+  color: #757575;
+  margin-right: 5px;
+}
+
+.mat-tree-node{
+  justify-content: space-between;
+  /* padding-left: 2rem; */
+}
+
+/* .mat-tree-node .mat-tree-node{
+  padding-left: 4rem;
+} */
+
+.mat-tree-node{
+  min-height: 36px;
+}
+
+.mat-tree-node a{
+  color: rgba(0,0,0,.87);
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.mat-tree-node .mat-button{
+  width: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1rem;
+  font-weight: normal;
+}
+
+.mat-tree-node .mat-button .mat-button-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* padding-left: 1.5rem; */
+}
+
+.child-node-wrapper{
+  width: 100%;
+} 
+
+.mat-tree-node .child-node-wrapper .mat-button{
+  width: 100%;
+  padding-left: 3rem;
+  padding-right: 1rem;
+  font-weight: normal;
+
+}
+
+

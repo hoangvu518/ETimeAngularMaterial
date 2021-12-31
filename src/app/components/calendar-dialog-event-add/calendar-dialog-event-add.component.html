@@ -1,0 +1,116 @@
+<form [formGroup]="addEventForm" autocomplete="off" novalidate (ngSubmit)="onSubmit()">
+    <h1 mat-dialog-title>New Event</h1>
+    <div mat-dialog-content>
+
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Subject" formControlName="subject">
+                    <mat-error *ngIf="addEventForm.controls['subject'].hasError('required')">
+                        Subject is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="full-width">
+                    <!-- <input matInput placeholder="Start Time" formControlName="startTime">
+                     -->
+                    <input matInput [matDatepicker]="startTimePicker" placeholder="Start Time" formControlName="startTime">
+                    <mat-datepicker-toggle matSuffix [for]="startTimePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startTimePicker></mat-datepicker>
+                    <mat-error *ngIf="addEventForm.controls['startTime'].hasError('required')">
+                        Start Time is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+
+
+
+                <!-- <mat-form-field appearance="fill">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="picker">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field> -->
+            </div>
+            <div class="col">
+                <mat-form-field class="full-width">
+                    <!-- <input matInput placeholder="Start Time" formControlName="startTime">
+                     -->
+                    <input matInput [matDatepicker]="endTimePicker" placeholder="End Time" formControlName="endTime">
+                    <mat-datepicker-toggle matSuffix [for]="endTimePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #endTimePicker></mat-datepicker>
+                    <mat-error *ngIf="addEventForm.controls['endTime'].hasError('required')">
+                        End Time is <strong>required</strong>
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <mat-form-field class="full-width">
+                    <textarea matInput placeholder="Detail" formControlName="detail" cdkTextareaAutosize
+                        cdkAutosizeMinRows="5" cdkAutosizeMaxRows="5">
+                    </textarea>
+                </mat-form-field>
+            </div>
+        </div>
+
+
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>Close</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="disabledSubmitButton">Submit</button>
+    </div>
+</form>
+
+
+<!-- <form [formGroup]="addEventForm" novalidate (ngSubmit)="onSubmit()">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>New Event</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Subject" formControlName="subject">
+              <mat-error *ngIf="addEventForm.controls['subject'].hasError('required')">
+                Subject is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="Start Time" formControlName="startTime">
+              <mat-error *ngIf="addEventForm.controls['startTime'].hasError('required')">
+                Start Time is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput placeholder="End Time" formControlName="endTime">
+              <mat-error *ngIf="addEventForm.controls['endTime'].hasError('required')">
+                End Time is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field class="full-width">
+              <textarea matInput placeholder="Detail" formControlName="detail"></textarea>
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit">Submit</button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+   -->

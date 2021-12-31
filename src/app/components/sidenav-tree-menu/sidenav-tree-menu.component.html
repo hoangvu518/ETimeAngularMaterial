@@ -1,0 +1,43 @@
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl">
+  <mat-tree-node *matTreeNodeDef="let node; when: isLevelOne" matTreeNodeToggle>
+
+    <!-- <mat-icon class="type-icon" [attr.aria-label]="node.type + 'icon'">
+      {{ node.type === 'file' ? 'description' : 'folder' }}
+    </mat-icon> -->
+    <!-- {{treeControl.getLevel(node)}} -->
+    <div class="child-node-wrapper">
+      <button mat-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+        <!-- <button mat-button disabled></button> -->
+        <a [routerLink]="[node.path]" routerLinkActive="active">{{node.name}}</a>
+
+
+      </button>
+    </div>
+
+  </mat-tree-node>
+
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+    <!-- <mat-icon class="type-icon" [attr.aria-label]="node.type + 'icon'">
+      {{ node.type === 'file' ? 'description' : 'folder' }}
+    </mat-icon> -->
+    <!-- {{treeControl.getLevel(node)}} -->
+    <button mat-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+      {{node.name}}
+
+    </button>
+  </mat-tree-node>
+
+  <mat-tree-node *matTreeNodeDef="let node; when: hasChild">
+    <!-- <button mat-icon-button disabled></button> -->
+    <!-- {{treeControl.getLevel(node)}} -->
+    <button mat-button matTreeNodeToggle [attr.aria-label]="'Toggle ' + node.name">
+      <span>{{node.name}}</span>
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    <!-- <mat-icon class="type-icon" [attr.aria-label]="node.type + 'icon'">
+      {{ node.type ==='file' ? 'description' : 'folder' }}
+    </mat-icon> -->
+  </mat-tree-node>
+</mat-tree>
